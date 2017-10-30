@@ -1,4 +1,4 @@
 # Digiprojekti-Saranismi
-Leader: Sara Lehmus
-Milla-Maija Kauppinen
-Leevi Seppälä
+Leader: Sara Lehmus (Selfiesticky)<br>
+Milla-Maija Kauppinen<br>
+Leevi Seppälä (Lerssi)<br>
