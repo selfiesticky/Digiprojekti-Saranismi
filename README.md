@@ -15,4 +15,4 @@ Mikä on kehitystyön kohde? Olemassa oleva palvelu
 
 Mitkä ovat kehitystyön tavoitteet? Miksi haluat parantaa palveluasi?
 
--	Saadaksemme enemmän vastauksia kyselyihin ja näin laajemman ja tarkemman tilastollisen käsityksen. Oman kokemuksen mukaan palautteen antaminen on ollut epämiellyttävää ja tylsistyttävää.
+-	Saadaksemme enemmän vastauksia kyselyihin ja näin laajemman ja tarkemman tilastollisen käsityksen. Oman kokemuksen mukaan palautteen antaminen on ollut epämiellyttävää ja tylsistyttävää. 
