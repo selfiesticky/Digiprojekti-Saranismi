@@ -1,11 +1,16 @@
 # Digiprojekti-Saranismi
+projekti-idea-ja-tiimi
 Jäsenet:
-Sara Lehmus, Milla-Maija Kauppinen, Matias Seppänen, Henri Väyrynen, Leevi Seppälä
+Leader: Sara Lehmus (Selfiesticky)<br>
+Milla-Maija Kauppinen<br>
+Leevi Seppälä (Lerssi)<br>
+Matias Seppänen (HenryMatias) <br>
+Henri Väyrynen (henriväyrynen) <br>
 
 Osaamiset:
 
-Sara Lehmus, Milla-Maija Kauppinen: Visuaalinen tuotanto
-Henri Väyrynen, Leevi Seppälä: Sisältö
+Sara Lehmus, Milla-Maija Kauppinen: Visuaalinen tuotanto<br>
+Henri Väyrynen, Leevi Seppälä: Sisältö<br>
 Matias Seppänen: Analytiikka ja testaus
 
 
