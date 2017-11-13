@@ -1,0 +1,13 @@
+[{
+    "kysymysteksti":"Onko hauki kala?",
+    "type":"radio",
+    "name":"hauki",
+    "value":["on", "ei"]
+    
+},{
+    "kysymysteksti":"Onko vesi markaa?",
+    "type":"radio",
+    "name":"vesi",
+    "value":["on", "ei"]
+
+}]
