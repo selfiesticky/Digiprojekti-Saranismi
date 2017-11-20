@@ -1,6 +1,6 @@
 # Digiprojekti-Saranismi
 projekti-idea-ja-tiimi
-Jäsenet:
+Jäsenet:<br>
 Leader: Sara Lehmus (Selfiesticky)<br>
 Milla-Maija Kauppinen<br>
 Leevi Seppälä (Lerssi)<br>
