@@ -1,0 +1,13 @@
+[{
+    "id1":"Opiskelijanumerosi?",
+    "type":"string",
+    "name":"opiskelijanumero",
+    "value":["on", "ei"]
+    
+},{
+    "kysymysteksti":"Onko vesi markaa?",
+    "type":"radio",
+    "name":"vesi",
+    "value":["on", "ei"]
+
+}]
