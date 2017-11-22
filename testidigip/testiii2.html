@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+</head>
+
+<body>
+    <form>
+        <div id="lomake"></div>
+        <br>
+        <button onclick="laheta()">Lähetä</button>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $.getJSON("http://myy.haaga-helia.fi/~a1602705/testidigip/kysymykset.json", function(data) {
+            var items = [];
+            var i = 0;
+            var taulukko=[];
+            alert("xd");
+            $.each(data, function (key, d) {
+                if (d.type == "text" || d.type == "textarea") {
+                    items.push(d.kysymys + ": ");
+                    items.push("<input type=" + d.type + " id= " + d.name + "><br>");
+                }
+                if (d.type == "radio" || d.type == "checkbox") {
+                    items.push("<br>" + d.kysymys + ":<br>");
+
+                    for (i = 0; i < d.value.length; i++) {
+                        items.push("<input type=" + d.type + " id= " + d.value[i] + " name= " + d.name + " value=" + d.value[i] + ">" + d.value[i] + "<br>");
+                    }
+                }
+            });
+            alert("xd2");
+            $("input:checkbox[name=paina]:checked").each(function(){
+            taulukko.push($(this).val());
+                
+            
+            });
+
+
+            $("<div/>", {
+                "class": "my-new-list",
+                html: items.join("")
+            }).appendTo("#lomake");
+        });
+        
+        
+        
+    
+   function laheta(){
+    
+   // var sukupuoli = document.querySelector('input[name = "sukupuoli"]:checked').value;
+        
+   // var opintojakso = document.querySelector('input[name = "opintojakso"]:checked').value;
+    
+  /*  var muu = document.getElementById("muu").value;
+    
+    var kehitys = document.getElementById("kehitys").value;
+    
+    var arvio = document.querySelector('input[name = "arvio"]:checked').value;
+    
+    var osaaminen = document.querySelector('input[name = "osaaminen"]:checked').value;
+        
+    alert("Sukupuolesi :  " + sukupuoli + " Mitä hyvää opintojaksossa oli :  " + opintojakso + " " + muu + " Miten kehittäisit opintojaksoa :  " + kehitys + "Kokonaisarvio opintojaksosta : " + arvio + "Oma arvio : " + osaaminen);
+    */
+}        
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
