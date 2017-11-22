@@ -17,7 +17,7 @@
             var items = [];
             var i = 0;
             var taulukko=[];
-            alert("xd");
+            
             $.each(data, function (key, d) {
                 if (d.type == "text" || d.type == "textarea") {
                     items.push(d.kysymys + ": ");
@@ -31,7 +31,7 @@
                     }
                 }
             });
-            alert("xd2");
+            
             $("input:checkbox[name=paina]:checked").each(function(){
             taulukko.push($(this).val());
                 
@@ -50,11 +50,11 @@
     
    function laheta(){
     
-   // var sukupuoli = document.querySelector('input[name = "sukupuoli"]:checked').value;
+    var sukupuoli = document.querySelector('input[name = "sukupuoli"]:checked').value;
         
-   // var opintojakso = document.querySelector('input[name = "opintojakso"]:checked').value;
+    var opintojakso = document.querySelector('input[name = "opintojakso"]:checked').value;
     
-  /*  var muu = document.getElementById("muu").value;
+    var muu = document.getElementById("muu").value;
     
     var kehitys = document.getElementById("kehitys").value;
     
@@ -63,7 +63,7 @@
     var osaaminen = document.querySelector('input[name = "osaaminen"]:checked').value;
         
     alert("Sukupuolesi :  " + sukupuoli + " Mitä hyvää opintojaksossa oli :  " + opintojakso + " " + muu + " Miten kehittäisit opintojaksoa :  " + kehitys + "Kokonaisarvio opintojaksosta : " + arvio + "Oma arvio : " + osaaminen);
-    */
+    
 }        
     </script>
 
