@@ -1,0 +1,13 @@
+body {
+    background-image:url(../kuvat/Pinder.png);
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: top;
+    font-family: 'Lato', sans-serif;
+}
+
+.kirjautuminen .form-control {
+    
+    margin-left: auto;
+    margin-right: auto;
+}
