@@ -13,6 +13,12 @@ margin-top: 300px;
 color: white;
 }
 
+input {
+	color:black;
+	font-size: 12px;
+	height: 100px;
+	width: 300px;
+}
 
 .kirjautuminen .form-control {
     
@@ -45,12 +51,3 @@ margin-bottom: 7px;}
 .one {width: 100px;}
 h1 {font-size: 60px;}
 
-
-@media only screen and (min-width: 361px)     
-          
-}
-
-
-@media only screen and (min-width: 768px) {
-
-}

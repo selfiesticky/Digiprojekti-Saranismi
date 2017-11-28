@@ -4,14 +4,46 @@
     font-family: 'Lato', sans-serif;
     color: white;
     text-align: center;
-    align-content: center;
+	align-content: center;
+}
+
+.my-new-list {
+	font-size: 30px;
+	color: white;
+	margin-top: 200px;
+	margin-left:90px;
+}
+
+input {
+	color:black;
+	font-size: 12px;
+	height: 100px;
+	width: 300px;
 }
 
 
  @media (min-width: 700px) {
    
      #myCarousel {
-        padding-right: 27%;
-        padding-left: 27%;
+        padding-right: 35%;
+        padding-left: 35%;
      }
+ }
+ @media only screen and (max-width: 360px) {
+.my-new-list {
+margin: 0 auto;
+margin-bottom: 7px;
+font-size: 20px;
+text-align:center;
+padding-top: 50px;
+}
+.kysymys2 {
+margin: 0 auto;
+margin-bottom: 7px;
+}
+
+#myCarousel {
+background-image: url(../kuvat/Pinder.png);
+
+}
  }
