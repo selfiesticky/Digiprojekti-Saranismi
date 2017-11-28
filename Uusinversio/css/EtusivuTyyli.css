@@ -11,3 +11,34 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.my-new-list {
+	color: white;
+	margin-bottom: 7px;
+	margin-right: 50px;
+	
+	
+}
+
+.kysymys2 {
+	color: white;
+	 margin-bottom: 7px;
+	margin-right: 0px;
+	
+
+	}
+
+@media only screen and (max-width: 360px) {
+#content {margin: 0 auto;}
+.my-new-list {margin: 0 auto;}
+.kysymys2 {margin: 0 auto;}
+
+
+@media only screen and (min-width: 361px)     
+          
+}
+
+
+@media only screen and (min-width: 768px) {
+
+}
