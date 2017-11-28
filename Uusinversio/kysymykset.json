@@ -1,10 +1,10 @@
-[{  "kysymys":"Opiskelijanumerosi?",
+[{  "kysymys":"Opiskelijanumerosi ",
     "type":"text",
     "name":"opiskelijanumero",
     "value":[""]
     
 },{
-    "kysymys":"Kurssiavain",
+    "kysymys":"Kurssiavain ",
     "type":"text",
     "name":"kurssiavain",
     "value":[""]

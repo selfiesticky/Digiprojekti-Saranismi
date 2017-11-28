@@ -6,6 +6,14 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+h1 {
+font-size:80px; 
+font-family: 'Merienda', cursive; 
+margin-top: 300px; 
+color: white;
+}
+
+
 .kirjautuminen .form-control {
     
     margin-left: auto;
@@ -15,7 +23,7 @@ body {
 .my-new-list {
 	color: white;
 	margin-bottom: 7px;
-	margin-right: 50px;
+	margin-right: 52px;
 	
 	
 }
@@ -28,10 +36,14 @@ body {
 
 	}
 
+	
 @media only screen and (max-width: 360px) {
-#content {margin: 0 auto;}
-.my-new-list {margin: 0 auto;}
-.kysymys2 {margin: 0 auto;}
+.my-new-list {margin: 0 auto;
+margin-bottom: 7px;}
+.kysymys2 {margin: 0 auto;
+margin-bottom: 7px;}
+.one {width: 100px;}
+h1 {font-size: 60px;}
 
 
 @media only screen and (min-width: 361px)     
