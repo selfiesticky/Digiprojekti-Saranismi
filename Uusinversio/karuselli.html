@@ -100,6 +100,10 @@
                 if (d.kysymykset[6].kysymystyyppi == "radio") {
                     items2.push(d.kysymykset[6].kysymysteksti + ": ");
                     items2.push("<input kysymystyyppi=" + d.kysymykset[6].kysymystyyppi + " id= " + d.kysymykset[6].kysymys_id + "><br>");
+                    /*	Radio ja Checkboxeihin tulisi kai näin?
+                    
+                    for (i = 0; i < d.value.length; i++) { 
+	items.push("<input type=" + d.type + " id= "+ d.value[6]+ " name= "+ d.name+" value="+ d.value[6]+">"+d.value[6]+"<br>" ); */
                 }
                
                 
@@ -163,13 +167,13 @@
 
     
     
-/* DATAN LÄHETTÄMINEN */
+/* DATAN LÄHETTÄMINEN Mirjan esimerkistä*/
     
 
 
 function laheta(){
 		
-	var kehitys = document.getElementById("opintojakso").value;	
+	var kehitys = document.getElementById([6]).value;	
     
     var arvio = document.querySelector('input[name = "arvio"]:checked').value;
     //alert("sukupuoli " + sukupuoli);
