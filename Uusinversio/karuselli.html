@@ -189,14 +189,12 @@ function laheta(){
 	alert("Miten kehittäisit opintojaksoa? : "+kehitys+"<br>Kokonaisarvio opintojaksosta: "+arvio+"<br>Arvio oaa osuuttasi oppimisessa, sekä osaamistavoitteiden saavuttamisessa: " +osaaminen+ "<br>Mitä hyvää oli opintojaksossa?: "+ opintojakso);
 }        
 
+    
+    
+/* TÄHÄN LOPPUU MIRJAN ESIMERKISTÄ KOPIOITU JA MUOKATTU JUTTU 
+Seuraava esimerkki on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla" */
 
 $(document).ready(function(){
-
-/*Luodaan JavaScript-olio, joka sisältää palvelimelle lähetettävän vastauksen tiedot.
-kysymysId on kysymyksen id
-vastaus on käyttäjän antama vastaus. "Tässä tapauksessa vastaus kysymykseen Kuinka vanha olet?"
-Tässä oletetaan, että vastauksen id luodaan palvelinpäässä.
-*/
 
 var jsonData = {"kymysId":"1234", "vastaus":"23"};
 
