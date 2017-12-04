@@ -77,7 +77,7 @@
             
      
             $.each(data, function (key, d) {
-                if (d.kysymykset[5].kysymystyyppi == "text" || d.kysymykset[5].kysymystyyppi == "textarea") {
+                if (d.kysymykset[5].kysymystyyppi == "textarea") {
                     items.push(d.kysymykset[5].kysymysteksti + ": ");
                     items.push("<input kysymystyyppi=" + d.kysymykset[5].kysymystyyppi + " id= " + d.kysymykset[5].kysymys_id + "><br>");
                 }
@@ -97,7 +97,7 @@
            
            items2 = [];
            $.each(data, function (key, d) {
-                if (d.kysymykset[6].kysymystyyppi == "text" || d.kysymykset[6].kysymystyyppi == "radio") {
+                if (d.kysymykset[6].kysymystyyppi == "radio") {
                     items2.push(d.kysymykset[6].kysymysteksti + ": ");
                     items2.push("<input kysymystyyppi=" + d.kysymykset[6].kysymystyyppi + " id= " + d.kysymykset[6].kysymys_id + "><br>");
                 }
@@ -118,7 +118,7 @@
 		   
 		   items3 = [];
            $.each(data, function (key, d) {
-                if (d.kysymykset[7].kysymystyyppi == "text" || d.kysymykset[7].kysymystyyppi == "radio") {
+                if (d.kysymykset[7].kysymystyyppi == "radio") {
                     items3.push(d.kysymykset[7].kysymysteksti + ": ");
                     items3.push("<input kysymystyyppi=" + d.kysymykset[7].kysymystyyppi + " id= " + d.kysymykset[7].kysymys_id + "><br>");
                 }
@@ -141,7 +141,7 @@
 		   
 		   items4 = [];
            $.each(data, function (key, d) {
-                if (d.kysymykset[3].kysymystyyppi == "text" || d.kysymykset[3].kysymystyyppi == "checkbox") {
+                if (d.kysymykset[3].kysymystyyppi == "checkbox") {
                     items4.push(d.kysymykset[3].kysymysteksti + ": ");
                     items4.push("<input kysymystyyppi=" + d.kysymykset[3].kysymystyyppi + " id= " + d.kysymykset[3].kysymys_id + "><br>");
                 }
