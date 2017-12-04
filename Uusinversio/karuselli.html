@@ -160,10 +160,69 @@
             }).appendTo("#kysymys4");
 		   
         });
+
+    
+    
+/* DATAN LÄHETTÄMINEN */
+    
+
+
+function laheta(){
+		
+	var kehitys = document.getElementById("opintojakso").value;	
+    
+    var arvio = document.querySelector('input[name = "arvio"]:checked').value;
+    //alert("sukupuoli " + sukupuoli);
+    
+    var osaaminen = document.querySelector('input[name = "osaaminen"]:checked').value;
+	
+	var harrastukset="";
+	var taulukko=[];
+	$("input:checkbox[name=opintojakso]:checked").each(function(){
+    taulukko.push($(this).val());
+	});
+	
+	for (i = 0; i < taulukko.length; i++) { 
+	//alert(taulukko[i]);
+	opintojakso=opintojakso +" "+ taulukko[i];
+	}
+	alert("Miten kehittäisit opintojaksoa? : "+kehitys+"<br>Kokonaisarvio opintojaksosta: "+arvio+"<br>Arvio oaa osuuttasi oppimisessa, sekä osaamistavoitteiden saavuttamisessa: " +osaaminen+ "<br>Mitä hyvää oli opintojaksossa?: "+ opintojakso);
+}        
+
+
+$(document).ready(function(){
+
+/*Luodaan JavaScript-olio, joka sisältää palvelimelle lähetettävän vastauksen tiedot.
+kysymysId on kysymyksen id
+vastaus on käyttäjän antama vastaus. "Tässä tapauksessa vastaus kysymykseen Kuinka vanha olet?"
+Tässä oletetaan, että vastauksen id luodaan palvelinpäässä.
+*/
+
+var jsonData = {"kymysId":"1234", "vastaus":"23"};
+
+/* stringify-metodia tarvitaan vain alert-funktiota varten. */
+var myJSON = JSON.stringify(jsonData);
+
+
+$("button").click(function(){
+    
+	$.ajax({
+    url: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
+    type: 'POST',
+    dataType: 'json',
+    data: jsonData, 
+    success: function() { alert('POST completed. Data:' + myJSON)}
+});
+	
+}); 
+
+
+});
+
 </script>
  
-
-      
+<button onclick="laheta()">Lähetä kurssipalaute</button>    
+    
 </body>
 
 </html>
@@ -178,3 +237,39 @@
                 }
             });
 //--> 
+
+
+
+<!-- 
+
+$(document).ready(function(){
+
+/*Luodaan JavaScript-olio, joka sisältää palvelimelle lähetettävän vastauksen tiedot.
+kysymysId on kysymyksen id
+vastaus on käyttäjän antama vastaus. "Tässä tapauksessa vastaus kysymykseen Kuinka vanha olet?"
+Tässä oletetaan, että vastauksen id luodaan palvelinpäässä.
+*/
+
+var jsonData = {"kymysId":"1234", "vastaus":"23"};
+
+/* stringify-metodia tarvitaan vain alert-funktiota varten. */
+var myJSON = JSON.stringify(jsonData);
+
+
+$("button").click(function(){
+    
+	$.ajax({
+    url: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
+    type: 'POST',
+    dataType: 'json',
+    data: jsonData, 
+    success: function() { alert('POST completed. Data:' + myJSON)}
+});
+	
+}); 
+
+
+});
+
+
+//-->
