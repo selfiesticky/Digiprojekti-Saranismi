@@ -74,12 +74,17 @@
             var items = [];
             var i = 0;
            
-            
+           items5 = [];
+           $.each(data, function (key, d) {
+                if (d.kysymykset[2].kysymystyyppi == "radio") {
+                    items5.push(d.kysymykset[2].kysymysteksti + " : <br>");
+		}
+ 
      
             $.each(data, function (key, d) {
                 if (d.kysymykset[5].kysymystyyppi == "textarea") {
-                    items.push(d.kysymykset[5].kysymysteksti + ": ");
-                    items.push("<input kysymystyyppi=" + d.kysymykset[5].kysymystyyppi + " id= " + d.kysymykset[5].kysymys_id + "><br>");
+                    items.push(d.kysymykset[5].kysymysteksti + ": "+ "<form class="+"tekstikentta"+"><textarea id="+"teksti"+"></textarea></form> ");
+                    /*items.push("<input kysymystyyppi=" + d.kysymykset[5].kysymystyyppi + " id= " + d.kysymykset[5].kysymys_id + "><br>");*/
                 }
                
                 
