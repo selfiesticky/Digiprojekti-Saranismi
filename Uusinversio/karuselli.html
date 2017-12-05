@@ -170,7 +170,7 @@
 function laheta(){
 	
 	var kehitys = $('textarea#teksti').val();
-	var sukupuoli = $('input[name=sukup]:checked').val();
+	var sukupuoli = document.querySelector('input[name = "sukup"]:checked').value;
 	var opintojakso = $('input[name=opintojakso]').val();
 	var arvio = document.querySelector('input[name = "arvio"]:checked').value;
     var osuus = document.querySelector('input[name = "osuus"]:checked').value;
