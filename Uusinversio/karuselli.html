@@ -36,22 +36,22 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-       <div alt="Kysymys1" id="kysymys1" style="width:100%;"> 
+       <div id="kysymys1" style="width:100%;"> 
         </div>
 	 </div>
 
       <div class="item">
-       <div alt="Kysymys2" id="kysymys2" style="width:100%;"> 
+       <div id="kysymys2" style="width:100%;"> 
         </div>
       </div>
     
       <div class="item">
-        <div alt="Kysymys3" id="kysymys3" style="width:100%;"> 
+        <div id="kysymys3" style="width:100%;"> 
         </div>
       </div>
 	
 	   <div class="item">
-        <div alt="Kysymys4" id="kysymys4" style="width:100%;"> 
+        <div id="kysymys4" style="width:100%;"> 
         </div>
       </div>
     </div>
@@ -69,51 +69,71 @@
 </div>
 
 <script>
+/* JSONIN HAKEMINEN */
        $.getJSON("http://proto326.haaga-helia.fi:8080/pepemake/kyselyt/1/kysymykset", function(data) {
            
             var items = [];
             var i = 0;
            
-           items5 = [];
+            items5 = [];
            $.each(data, function (key, d) {
                 if (d.kysymykset[2].kysymystyyppi == "radio") {
                     items5.push(d.kysymykset[2].kysymysteksti + " : <br>");
-		}
+					items5.push("<input type = 'radio' id='myradio' name='sukup' value='mies'> Mies<br>"); 
+					items5.push("<input type = 'radio' id='myradio2' name='sukup' value='nainen'> Nainen<br>"); 
+		/*Tämä tuo nyt kysymyksen Jsonista ja radio-button vastausvaihtoehdot kirjotettuna, eli pitää saada vielä hakemaan ne vastausvaihtoehdot JSONista..*/
+ } /*FOR-LOOPIN ESIMERKKI LÖYTYY KOODIN LOPUSSA!*/
  
-     
-            $.each(data, function (key, d) {
-                if (d.kysymykset[5].kysymystyyppi == "textarea") {
-                    items.push(d.kysymykset[5].kysymysteksti + ": "+ "<form class="+"tekstikentta"+"><textarea id="+"teksti"+"></textarea></form> ");
-                    /*items.push("<input kysymystyyppi=" + d.kysymykset[5].kysymystyyppi + " id= " + d.kysymykset[5].kysymys_id + "><br>");*/
-                }
-               
-                
-                
-            });
-           
-            
-          
-            $("<div/>", {
-                "class": "my-new-list",
-                html: items.join("")
-            }).appendTo("#kysymys1");
-           
-           items2 = [];
-           $.each(data, function (key, d) {
-                if (d.kysymykset[6].kysymystyyppi == "radio") {
-                    items2.push(d.kysymykset[6].kysymysteksti + ": ");
-                    items2.push("<input kysymystyyppi=" + d.kysymykset[6].kysymystyyppi + " id= " + d.kysymykset[6].kysymys_id + "><br>");
-                    /*	Radio ja Checkboxeihin tulisi kai näin?
-                    
-                    for (i = 0; i < d.value.length; i++) { 
-	items.push("<input type=" + d.type + " id= "+ d.value[6]+ " name= "+ d.name+" value="+ d.value[6]+">"+d.value[6]+"<br>" ); */
-                }
-               
-                
-                
+      
             });
          
             
+            $("<div/>", {
+                "class": "kysymys5",
+                html: items5.join("")
+            }).appendTo("#kysymys1");
+			
+			
+			
+			
+			
+		
+			
+     
+            $.each(data, function (key, d) {
+                if (d.kysymykset[5].kysymystyyppi == "textarea") {
+                    items.push(d.kysymykset[5].kysymysteksti + "<form class="+"tekstikentta"+"><textarea id="+"teksti"+"></textarea></form> ");
+                    /*Tekstikenttää ei Jqueryssa? Joten se täytyy itse kirjottaa. Toimii!*/    
+                }   
+            });
+           
+
+            $("<div/>", {
+                "class": "kysymys1",
+                html: items.join("")
+            }).appendTo("#kysymys1");
+           
+		   
+		 
+
+
+		 
+
+/*CHECKBOX: Tähän koodiin niitä for-looppeja... */		 
+          items2 = [];
+           $.each(data, function (key, d) {
+                if (d.kysymykset[3].kysymystyyppi == "checkbox") {
+                    items2.push(d.kysymykset[3].kysymysteksti);
+                    items2.push("<input kysymystyyppi=" + d.kysymykset[3].kysymystyyppi + " id= " + d.kysymykset[3].kysymys_id + " name='opintojakso'><br>");
+                }   
+            });
+                    
+					/*	Radio ja Checkboxeihin tulisi kai näin?
+                    
+                    for (i = 0; i < d.value.length; i++) { 
+	items.push("<input type=" + d.type + " id= "+ d.value[i]+ " name= "+ d.name+" value="+ d.value[i]+">"+d.value[i]+"<br>" ); */
+                
+
           
             $("<div/>", {
                 "class": "kysymys2",
@@ -121,18 +141,24 @@
             }).appendTo("#kysymys2");
            
 		   
-		   items3 = [];
+		   
+		   
+		   
+		  
+		 
+		   
+		   
+		   
+		   
+		  items3 = [];
            $.each(data, function (key, d) {
-                if (d.kysymykset[7].kysymystyyppi == "radio") {
-                    items3.push(d.kysymykset[7].kysymysteksti + ": ");
-                    items3.push("<input kysymystyyppi=" + d.kysymykset[7].kysymystyyppi + " id= " + d.kysymykset[7].kysymys_id + "><br>");
+                if (d.kysymykset[6].kysymystyyppi == "radio") {
+                    items3.push(d.kysymykset[6].kysymysteksti + " :  "+ "<br>");
+                    /*for vai ei? 
+				  items3.push(...)*/
                 }
-               
+               });
                 
-                
-            });
-         
-            
           
             $("<div/>", {
                 "class": "kysymys3",
@@ -142,21 +168,21 @@
 		   
 		   
 		  
-           
+        
+
+		
+		 
 		   
-		   items4 = [];
+		  items4 = [];
            $.each(data, function (key, d) {
-                if (d.kysymykset[3].kysymystyyppi == "checkbox") {
-                    items4.push(d.kysymykset[3].kysymysteksti + ": ");
-                    items4.push("<input kysymystyyppi=" + d.kysymykset[3].kysymystyyppi + " id= " + d.kysymykset[3].kysymys_id + "><br>");
+                if (d.kysymykset[7].kysymystyyppi == "radio") {
+                    items4.push(d.kysymykset[7].kysymysteksti + " :  "+ "<br>");
+                  /*for vai ei? 
+				  items4.push(...)*/
                 }
-               
-                
-                
+ 
             });
-         
-            
-          
+
             $("<div/>", {
                 "class": "kysymys4",
                 html: items4.join("")
@@ -164,16 +190,21 @@
 		   
         });
     
-    
+   
+
+
+
+   
 /* DATAN LÄHETTÄMINEN MIRJAN ESIMERKISTÄ*/
-    
+
 function laheta(){
 	
 	var kehitys = $('textarea#teksti').val();
 	var sukupuoli = document.querySelector('input[name = "sukup"]:checked').value;
+/*
 	var arvio = document.querySelector('input[name = "arvio"]:checked').value;
-    	var osuus = document.querySelector('input[name = "osuus"]:checked').value;
-	
+    var osuus = document.querySelector('input[name = "osuus"]:checked').value;
+*/
 	/* CHECKBOXIN VASTAUKSEN HAKEMINEN:
 	
 	var opintojakso= "";
@@ -187,24 +218,39 @@ function laheta(){
 	opintojakso=opintojakso +" "+ taulukko[i];
 	}
 	
-	*/ 
-	alert("Kiitos palautteestasi, käsittelemme sen mahdollisimman pian."+'\n\n'+"Miten kehittäisit opintojaksoa? : "+kehitys +'\n\n'+ "Mitä hyvää oli opintojaksossa? "+ opintojakso +'\n\n'+"Sukupuoli: " + sukupuoli	+'\n\n'+ "Kokonaisarvio opintojaksosta: "+arvio +'\n\n'+ "Arvio omasta osuudesta oppimisessa, sekä osaamistavoitteiden saavuttamisessa: "+ osuus);
+	 */
+	 
+	alert("Kiitos palautteestasi, käsittelemme sen mahdollisimman pian."+'\n\n'+"Miten kehittäisit opintojaksoa? : "+kehitys+'\n\n'+"Sukupuoli? : "+sukupuoli);
+
 	
 	
-	
-	}       
+	}      
+
+/* TÄHÄN LOPPUU MIRJAN ESIMERKISTÄ KOPIOITU JA MUOKATTU JUTTU */    
+
+</script>
+ 
+ 
+ 
+ 
+ <form>
+<button onclick="laheta()">Lähetä kurssipalaute</button>    
     
-    
-/* TÄHÄN LOPPUU MIRJAN ESIMERKISTÄ KOPIOITU JA MUOKATTU JUTTU 
+</form>
 
 
-Seuraava esimerkki on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla": */
+
+
+<!--  
+
+
+SEURAAVA ESIMERKKI on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla":
 	       
 	       
-/*$(document).ready(function(){
-var jsonData = {"kymysId":"1234", "vastaus":"23"};*/
-/* stringify-metodia tarvitaan vain alert-funktiota varten. */
-/*var myJSON = JSON.stringify(jsonData);
+$(document).ready(function(){
+var jsonData = {"kymysId":"1234", "vastaus":"23"};
+/* stringify-metodia tarvitaan vain alert-funktiota varten */
+var myJSON = JSON.stringify(jsonData);
 $("button").click(function(){
     
 	$.ajax({
@@ -218,14 +264,15 @@ $("button").click(function(){
 }); 
 });
 
-/* Moodlesta otettu Esimerkki loppuu */
-</script>
- 
-<button onclick="laheta()">Lähetä kurssipalaute</button>    
-    
-</body>
-</html>
-<!-- if (d.type == "radio" || d.type == "checkbox") {
+Moodlesta otettu Esimerkki loppuu
+/-->
+
+	
+	
+	
+	<!-- 
+FOR-LOOPPI ESIMERKKI!
+if (d.type == "radio" || d.type == "checkbox") {
                     items.push("<br>" + d.kysymys + ":<br>");
                     for (i = 0; i < d.value.length; i++) {
                         items.push("<input type=" + d.type + " id= " + d.value[i] + " name= " + d.name + " value=" + d.value[i] + ">" + d.value[i] + "<br>");
@@ -233,26 +280,8 @@ $("button").click(function(){
                 }
             });
 //--> 
-<!-- 
-$(document).ready(function(){
-/*Luodaan JavaScript-olio, joka sisältää palvelimelle lähetettävän vastauksen tiedot.
-kysymysId on kysymyksen id
-vastaus on käyttäjän antama vastaus. "Tässä tapauksessa vastaus kysymykseen Kuinka vanha olet?"
-Tässä oletetaan, että vastauksen id luodaan palvelinpäässä.
-*/
-/*var jsonData = {"kymysId":"1234", "vastaus":"23"};*/
-/* stringify-metodia tarvitaan vain alert-funktiota varten. */
-/*var myJSON = JSON.stringify(jsonData);
-$("button").click(function(){
-    
-	$.ajax({
-    url: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
-    type: 'POST',
-    dataType: 'json',
-    data: jsonData, 
-    success: function() { alert('POST completed. Data:' + myJSON)}
-});
 	
-}); 
-});*/
-//-->
+	
+
+</body>
+</html>
