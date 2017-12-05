@@ -172,20 +172,23 @@
 
     
     
-/* DATAN LÄHETTÄMINEN Mirjan esimerkistä*/
+/* DATAN LÄHETTÄMINEN MIRJAN ESIMERKISTÄ*/
     
 
 
 function laheta(){
-		
-	var kehitys = document.getElementById([6]).value;	
-    
-    var arvio = document.querySelector('input[name = "arvio"]:checked').value;
-    //alert("sukupuoli " + sukupuoli);
-    
-    var osaaminen = document.querySelector('input[name = "osaaminen"]:checked').value;
 	
-	var harrastukset="";
+	var kehitys = $('textarea#teksti').val();
+	var sukupuoli = $('input[name=sukup]:checked').val();
+	var opintojakso = $('input[name=opintojakso]').val();
+	var arvio = document.querySelector('input[name = "arvio"]:checked').value;
+    var osuus = document.querySelector('input[name = "osuus"]:checked').value;
+	
+	//alert("sukupuoli " + sukupuoli);*/
+    /*HUOM!!! Ohtun lähettämässä Jsonissa ei ole nimitietoja*/
+    /*var osaaminen = document.querySelector('input[name = "osaaminen"]:checked').value;
+	
+	var opintojakso= "";
 	var taulukko=[];
 	$("input:checkbox[name=opintojakso]:checked").each(function(){
     taulukko.push($(this).val());
@@ -194,21 +197,27 @@ function laheta(){
 	for (i = 0; i < taulukko.length; i++) { 
 	//alert(taulukko[i]);
 	opintojakso=opintojakso +" "+ taulukko[i];
-	}
-	alert("Miten kehittäisit opintojaksoa? : "+kehitys+"<br>Kokonaisarvio opintojaksosta: "+arvio+"<br>Arvio oaa osuuttasi oppimisessa, sekä osaamistavoitteiden saavuttamisessa: " +osaaminen+ "<br>Mitä hyvää oli opintojaksossa?: "+ opintojakso);
-}        
+	}*/ 
+
+	alert("Kiitos palautteestasi, käsittelemme sen mahdollisimman pian."+'\n\n'+"Miten kehittäisit opintojaksoa? : "+kehitys +'\n\n'+ "Mitä hyvää oli opintojaksossa? "+ opintojakso +'\n\n'+"Sukupuoli: " + sukupuoli	+'\n\n'+ "Kokonaisarvio opintojaksosta: "+arvio +'\n\n'+ "Arvio omasta osuudesta oppimisessa, sekä osaamistavoitteiden saavuttamisessa: "+ osuus);
+
+	
+	
+
+	
+	}       
 
     
     
 /* TÄHÄN LOPPUU MIRJAN ESIMERKISTÄ KOPIOITU JA MUOKATTU JUTTU 
 Seuraava esimerkki on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla" */
 
-$(document).ready(function(){
+/*$(document).ready(function(){
 
-var jsonData = {"kymysId":"1234", "vastaus":"23"};
+var jsonData = {"kymysId":"1234", "vastaus":"23"};*/
 
 /* stringify-metodia tarvitaan vain alert-funktiota varten. */
-var myJSON = JSON.stringify(jsonData);
+/*var myJSON = JSON.stringify(jsonData);
 
 
 $("button").click(function(){
