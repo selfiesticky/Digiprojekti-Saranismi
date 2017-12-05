@@ -7,10 +7,25 @@
 	align-content: center;
 }
 
-.my-new-list {
+.tekstikentta {
 	font-size: 30px;
 	color: white;
-	margin-top: 257px;
+	margin-top: 40px;
+	margin-left:0px;
+}
+
+#teksti {
+	color: black;
+	font-size: 14px;
+	width: 270px;
+	height: 135px;
+	max-width: 290px;
+}
+
+.kysymys1 {
+	font-size: 30px;
+	color: white;
+	margin-top: 50px;
 	margin-left:0px;
 }
 
@@ -24,14 +39,21 @@
 .kysymys4 {
 	font-size: 30px;
 	color: white;
-	margin-top: 257px;
+	margin-top: 172px;
 	margin-left:0px;
 }
 
 .kysymys3 {
 	font-size: 30px;
 	color: white;
-	margin-top: 172px;
+	margin-top: 257px;
+	margin-left:0px;
+}
+
+.kysymys5 {
+	font-size: 30px;
+	color: white;
+	margin-top: 60px;
 	margin-left:0px;
 }
 
@@ -40,6 +62,18 @@ input {
 	font-size: 12px;
 	height: 100px;
 	width: 300px;
+}
+
+#myradio {
+	margin-top: 20px;
+	width: 17px;
+	height: 17px;
+}
+
+#myradio2 {
+	margin-top: 5px;
+	width: 17px;
+	height: 17px;
 }
 
 .carousel-inner {
