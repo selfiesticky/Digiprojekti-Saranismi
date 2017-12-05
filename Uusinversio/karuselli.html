@@ -171,13 +171,10 @@ function laheta(){
 	
 	var kehitys = $('textarea#teksti').val();
 	var sukupuoli = document.querySelector('input[name = "sukup"]:checked').value;
-	var opintojakso = $('input[name=opintojakso]').val();
 	var arvio = document.querySelector('input[name = "arvio"]:checked').value;
-    var osuus = document.querySelector('input[name = "osuus"]:checked').value;
+    	var osuus = document.querySelector('input[name = "osuus"]:checked').value;
 	
-	//alert("sukupuoli " + sukupuoli);*/
-    /*HUOM!!! Ohtun lähettämässä Jsonissa ei ole nimitietoja*/
-    /*var osaaminen = document.querySelector('input[name = "osaaminen"]:checked').value;
+	/* CHECKBOXIN VASTAUKSEN HAKEMINEN:
 	
 	var opintojakso= "";
 	var taulukko=[];
@@ -188,7 +185,9 @@ function laheta(){
 	for (i = 0; i < taulukko.length; i++) { 
 	//alert(taulukko[i]);
 	opintojakso=opintojakso +" "+ taulukko[i];
-	}*/ 
+	}
+	
+	*/ 
 	alert("Kiitos palautteestasi, käsittelemme sen mahdollisimman pian."+'\n\n'+"Miten kehittäisit opintojaksoa? : "+kehitys +'\n\n'+ "Mitä hyvää oli opintojaksossa? "+ opintojakso +'\n\n'+"Sukupuoli: " + sukupuoli	+'\n\n'+ "Kokonaisarvio opintojaksosta: "+arvio +'\n\n'+ "Arvio omasta osuudesta oppimisessa, sekä osaamistavoitteiden saavuttamisessa: "+ osuus);
 	
 	
@@ -197,7 +196,11 @@ function laheta(){
     
     
 /* TÄHÄN LOPPUU MIRJAN ESIMERKISTÄ KOPIOITU JA MUOKATTU JUTTU 
-Seuraava esimerkki on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla" */
+
+
+Seuraava esimerkki on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla": */
+	       
+	       
 /*$(document).ready(function(){
 var jsonData = {"kymysId":"1234", "vastaus":"23"};*/
 /* stringify-metodia tarvitaan vain alert-funktiota varten. */
@@ -214,6 +217,8 @@ $("button").click(function(){
 	
 }); 
 });
+
+/* Moodlesta otettu Esimerkki loppuu */
 </script>
  
 <button onclick="laheta()">Lähetä kurssipalaute</button>    
