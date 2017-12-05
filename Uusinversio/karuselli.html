@@ -74,12 +74,17 @@
             var items = [];
             var i = 0;
            
-            
+           items5 = [];
+           $.each(data, function (key, d) {
+                if (d.kysymykset[2].kysymystyyppi == "radio") {
+                    items5.push(d.kysymykset[2].kysymysteksti + " : <br>");
+		}
+ 
      
             $.each(data, function (key, d) {
                 if (d.kysymykset[5].kysymystyyppi == "textarea") {
-                    items.push(d.kysymykset[5].kysymysteksti + ": ");
-                    items.push("<input kysymystyyppi=" + d.kysymykset[5].kysymystyyppi + " id= " + d.kysymykset[5].kysymys_id + "><br>");
+                    items.push(d.kysymykset[5].kysymysteksti + ": "+ "<form class="+"tekstikentta"+"><textarea id="+"teksti"+"></textarea></form> ");
+                    /*items.push("<input kysymystyyppi=" + d.kysymykset[5].kysymystyyppi + " id= " + d.kysymykset[5].kysymys_id + "><br>");*/
                 }
                
                 
@@ -88,8 +93,6 @@
            
             
           
-
-
             $("<div/>", {
                 "class": "my-new-list",
                 html: items.join("")
@@ -112,8 +115,6 @@
          
             
           
-
-
             $("<div/>", {
                 "class": "kysymys2",
                 html: items2.join("")
@@ -156,31 +157,29 @@
          
             
           
-
-
             $("<div/>", {
                 "class": "kysymys4",
                 html: items4.join("")
             }).appendTo("#kysymys4");
 		   
         });
-
     
     
-/* DATAN LÄHETTÄMINEN Mirjan esimerkistä*/
+/* DATAN LÄHETTÄMINEN MIRJAN ESIMERKISTÄ*/
     
-
-
 function laheta(){
-		
-	var kehitys = document.getElementById([6]).value;	
-    
-    var arvio = document.querySelector('input[name = "arvio"]:checked').value;
-    //alert("sukupuoli " + sukupuoli);
-    
-    var osaaminen = document.querySelector('input[name = "osaaminen"]:checked').value;
 	
-	var harrastukset="";
+	var kehitys = $('textarea#teksti').val();
+	var sukupuoli = $('input[name=sukup]:checked').val();
+	var opintojakso = $('input[name=opintojakso]').val();
+	var arvio = document.querySelector('input[name = "arvio"]:checked').value;
+    var osuus = document.querySelector('input[name = "osuus"]:checked').value;
+	
+	//alert("sukupuoli " + sukupuoli);*/
+    /*HUOM!!! Ohtun lähettämässä Jsonissa ei ole nimitietoja*/
+    /*var osaaminen = document.querySelector('input[name = "osaaminen"]:checked').value;
+	
+	var opintojakso= "";
 	var taulukko=[];
 	$("input:checkbox[name=opintojakso]:checked").each(function(){
     taulukko.push($(this).val());
@@ -189,63 +188,20 @@ function laheta(){
 	for (i = 0; i < taulukko.length; i++) { 
 	//alert(taulukko[i]);
 	opintojakso=opintojakso +" "+ taulukko[i];
-	}
+	}*/ 
+	alert("Kiitos palautteestasi, käsittelemme sen mahdollisimman pian."+'\n\n'+"Miten kehittäisit opintojaksoa? : "+kehitys +'\n\n'+ "Mitä hyvää oli opintojaksossa? "+ opintojakso +'\n\n'+"Sukupuoli: " + sukupuoli	+'\n\n'+ "Kokonaisarvio opintojaksosta: "+arvio +'\n\n'+ "Arvio omasta osuudesta oppimisessa, sekä osaamistavoitteiden saavuttamisessa: "+ osuus);
 	
-	alert("Miten kehittäisit opintojaksoa? : "+kehitys+"<br>Kokonaisarvio opintojaksosta: "+arvio+"<br>Arvio oaa osuuttasi oppimisessa, sekä osaamistavoitteiden saavuttamisessa: " +osaaminen+ "<br>Mitä hyvää oli opintojaksossa?: "+ opintojakso);
-
 	
-	}        
-
-   /*$("button").click(function(){
+	
+	}       
     
-	$.ajax({
-    url: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
-    type: 'POST',
-    dataType: 'json',
-    data: jsonData, 
-    success: function () { alert('POST completed. Data:' + kehitys)}
-});
-	
-}); */ 
-
-
-</script>
- 
-<button onclick="laheta()">Lähetä kurssipalaute</button>    
     
-</body>
-
-</html>
-
-
-<!-- if (d.type == "radio" || d.type == "checkbox") {
-                    items.push("<br>" + d.kysymys + ":<br>");
-
-                    for (i = 0; i < d.value.length; i++) {
-                        items.push("<input type=" + d.type + " id= " + d.value[i] + " name= " + d.name + " value=" + d.value[i] + ">" + d.value[i] + "<br>");
-                    }
-                }
-            });
-//--> 
-
-
-
-<!-- Tämä on toinen esimerkki Moodlesta datan lähettämiseen!
-
-$(document).ready(function(){
-
-/*Luodaan JavaScript-olio, joka sisältää palvelimelle lähetettävän vastauksen tiedot.
-kysymysId on kysymyksen id
-vastaus on käyttäjän antama vastaus. "Tässä tapauksessa vastaus kysymykseen Kuinka vanha olet?"
-Tässä oletetaan, että vastauksen id luodaan palvelinpäässä.
-*/
-
-var jsonData = {"kymysId":"1234", "vastaus":"23"};
-
+/* TÄHÄN LOPPUU MIRJAN ESIMERKISTÄ KOPIOITU JA MUOKATTU JUTTU 
+Seuraava esimerkki on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla" */
+/*$(document).ready(function(){
+var jsonData = {"kymysId":"1234", "vastaus":"23"};*/
 /* stringify-metodia tarvitaan vain alert-funktiota varten. */
-var myJSON = JSON.stringify(jsonData);
-
-
+/*var myJSON = JSON.stringify(jsonData);
 $("button").click(function(){
     
 	$.ajax({
@@ -257,9 +213,41 @@ $("button").click(function(){
 });
 	
 }); 
-
-
 });
-
-
+</script>
+ 
+<button onclick="laheta()">Lähetä kurssipalaute</button>    
+    
+</body>
+</html>
+<!-- if (d.type == "radio" || d.type == "checkbox") {
+                    items.push("<br>" + d.kysymys + ":<br>");
+                    for (i = 0; i < d.value.length; i++) {
+                        items.push("<input type=" + d.type + " id= " + d.value[i] + " name= " + d.name + " value=" + d.value[i] + ">" + d.value[i] + "<br>");
+                    }
+                }
+            });
+//--> 
+<!-- 
+$(document).ready(function(){
+/*Luodaan JavaScript-olio, joka sisältää palvelimelle lähetettävän vastauksen tiedot.
+kysymysId on kysymyksen id
+vastaus on käyttäjän antama vastaus. "Tässä tapauksessa vastaus kysymykseen Kuinka vanha olet?"
+Tässä oletetaan, että vastauksen id luodaan palvelinpäässä.
+*/
+/*var jsonData = {"kymysId":"1234", "vastaus":"23"};*/
+/* stringify-metodia tarvitaan vain alert-funktiota varten. */
+/*var myJSON = JSON.stringify(jsonData);
+$("button").click(function(){
+    
+	$.ajax({
+    url: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
+    type: 'POST',
+    dataType: 'json',
+    data: jsonData, 
+    success: function() { alert('POST completed. Data:' + myJSON)}
+});
+	
+}); 
+});*/
 //-->
