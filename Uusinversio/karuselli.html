@@ -190,36 +190,24 @@ function laheta(){
 	//alert(taulukko[i]);
 	opintojakso=opintojakso +" "+ taulukko[i];
 	}
+	
 	alert("Miten kehittäisit opintojaksoa? : "+kehitys+"<br>Kokonaisarvio opintojaksosta: "+arvio+"<br>Arvio oaa osuuttasi oppimisessa, sekä osaamistavoitteiden saavuttamisessa: " +osaaminen+ "<br>Mitä hyvää oli opintojaksossa?: "+ opintojakso);
-}        
 
-    
-    
-/* TÄHÄN LOPPUU MIRJAN ESIMERKISTÄ KOPIOITU JA MUOKATTU JUTTU 
-Seuraava esimerkki on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla" */
+	
+	}        
 
-$(document).ready(function(){
-
-var jsonData = {"kymysId":"1234", "vastaus":"23"};
-
-/* stringify-metodia tarvitaan vain alert-funktiota varten. */
-var myJSON = JSON.stringify(jsonData);
-
-
-$("button").click(function(){
+   /*$("button").click(function(){
     
 	$.ajax({
     url: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
     type: 'POST',
     dataType: 'json',
     data: jsonData, 
-    success: function() { alert('POST completed. Data:' + myJSON)}
+    success: function () { alert('POST completed. Data:' + kehitys)}
 });
 	
-}); 
+}); */ 
 
-
-});
 
 </script>
  
@@ -242,7 +230,7 @@ $("button").click(function(){
 
 
 
-<!-- 
+<!-- Tämä on toinen esimerkki Moodlesta datan lähettämiseen!
 
 $(document).ready(function(){
 
