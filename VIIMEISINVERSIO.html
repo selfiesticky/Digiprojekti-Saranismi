@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Helga Pinder</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <link rel="stylesheet" href="css/tyyli.css"> */
+
+    
+</head>
+<body>
+
+
+
+    
+
+    
+<div class="container"> 
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+	  <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+       <div id="kysymys1" style="width:100%;"> 
+        </div>
+	 </div>
+
+      <div class="item">
+       <div id="kysymys2" style="width:100%;"> 
+        </div>
+      </div>
+    
+      <div class="item">
+        <div id="kysymys3" style="width:100%;"> 
+        </div>
+      </div>
+	
+	   <div class="item">
+        <div id="kysymys4" style="width:100%;"> 
+            
+        
+        
+        </div>
+      <div class="item">
+        <div id="kysymys5" style="width:100%;"> 
+            
+        </div>
+          
+          <div class="item">
+        <div id="kysymys6" style="width:100%;"> 
+            <button onclick="laheta()" type="submit" class="btn btn-primary one" style="font-family: 'Lato', sans-serif;font-size: 16px; width: 300px; margin-top: 50px; position: center;">Lähetä kurssipalaute</button>
+        </div>
+      </div>
+      </div>
+ <form>
+    
+    
+</form>   
+</div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div> 
+</div>
+
+
+
+<script>
+/* JSONIN HAKEMINEN */
+       $.getJSON("http://proto326.haaga-helia.fi:8080/pepemake/kyselyt/1/kysymykset", function(data) {
+    
+/* RADIOBUTTONIN HAKU */
+           
+            var items = [];
+            var i = 0;
+            $.each(data, function (key, d) {
+            if (d.kysymykset[2].kysymystyyppi == "radio") {
+                    items.push("<br>" + d.kysymykset[2].kysymysteksti + ":<br>");
+                    for (i = 0; i < d.kysymykset[2].vaihtoehdot.length; i++) {
+                        items.push("<input type=" + d.kysymykset[2].kysymystyyppi +
+                                   " id= " +
+                                   d.kysymykset[2].vaihtoehdot[i].vaihtoehto_id[i] + " name= " + d.kysymykset[2].kysymys_id + " value=" + d.kysymykset[2].vaihtoehdot[i].vaihtoehtoteksti + ">" + d.kysymykset[2].vaihtoehdot[i].vaihtoehtoteksti + "<br>");
+                    }
+                }
+            });
+/* SIVULLE APPENDAAMINEN */     
+            $("<div/>", {
+                "class": "kysymys",
+                html: items.join("")
+            }).appendTo("#kysymys1");
+           
+			
+			var items2 = [];
+            var i2 = 0;
+            var taulukko=[];
+            $.each(data, function (key, d) {
+            if (d.kysymykset[3].kysymystyyppi == "checkbox") {
+                   
+                    items2.push("<br>" + d.kysymykset[3].kysymysteksti + ":<br>");
+                    
+
+                    for (i = 0; i < d.kysymykset[3].vaihtoehdot.length; i++) {
+                        items2.push("<input type=" + d.kysymykset[3].kysymystyyppi +
+                                   " id= " +
+                                   d.kysymykset[3].vaihtoehdot[i].vaihtoehto_id[i] + " name= " + d.kysymykset[3].kysymys_id + " value=" + d.kysymykset[3].vaihtoehdot[i].vaihtoehtoteksti + ">" +  d.kysymykset[3].vaihtoehdot[i].vaihtoehtoteksti + "<br>");
+                        
+                    }
+                }
+            });
+      
+            $("input:checkbox[name=opintojakso]:checked").each(function(){
+            taulukko.push($(this).val());
+                
+          
+            });
+            
+         
+            
+            $("<div/>", {
+                "class": "kysymys2",
+                html: items2.join("")
+            }).appendTo("#kysymys2");
+           
+            var items3 = [];
+            var i = 0;
+           
+            
+     
+            $.each(data, function (key, d) {
+                if (d.kysymykset[4].kysymystyyppi == "text" || d.kysymykset[4].kysymystyyppi == "textarea") {
+                    items3.push(d.kysymykset[4].kysymysteksti + ": ");
+                    items3.push("<input kysymystyyppi=" + d.kysymykset[4].kysymystyyppi + " id= " + d.kysymykset[4].kysymys_id + "><br>");
+                }
+               
+                
+                
+            });
+           
+            
+          
+
+
+            $("<div/>", {
+                "class": "my-new-list",
+                html: items3.join("")
+            }).appendTo("#kysymys2");
+           
+                var items4 = [];
+                var i = 0;
+           
+			
+			   $.each(data, function (key, d) {
+                if (d.kysymykset[5].kysymystyyppi == "text" || d.kysymykset[5].kysymystyyppi == "textarea") {
+                    items4.push(d.kysymykset[5].kysymysteksti + ": ");
+                    items4.push("<input kysymystyyppi=" + d.kysymykset[5].kysymystyyppi + " id= " + d.kysymykset[5].kysymys_id + "><br>");
+                }
+               
+                
+                
+            });
+           
+            
+          
+
+
+            $("<div/>", {
+                "class": "kysymys3",
+                html: items4.join("")
+            }).appendTo("#kysymys3");
+           
+			 var items5 = [];
+            var i = 0;
+            $.each(data, function (key, d) {
+            if (d.kysymykset[6].kysymystyyppi == "radio") {
+                    items5.push("<br>" + d.kysymykset[6].kysymysteksti + ":<br>");
+                    for (i = 0; i < d.kysymykset[6].vaihtoehdot.length; i++) {
+                        items5.push("<input type=" + d.kysymykset[6].kysymystyyppi +
+                                   " id= " +
+                                   d.kysymykset[6].vaihtoehdot[i].vaihtoehto_id[i] + " name= " + d.kysymykset[6].kysymys_id + " value=" + d.kysymykset[6].vaihtoehdot[i].vaihtoehtoteksti + ">" + d.kysymykset[6].vaihtoehdot[i].vaihtoehtoteksti + "<br>");
+                    }
+                }
+            });
+/* SIVULLE APPENDAAMINEN */     
+            $("<div/>", {
+                "class": "kysymys4",
+                html: items5.join("")
+            }).appendTo("#kysymys4");
+           
+            var items6 = [];
+            var i = 0;
+            $.each(data, function (key, d) {
+            if (d.kysymykset[7].kysymystyyppi == "radio") {
+                    items6.push("<br>" + d.kysymykset[7].kysymysteksti + ":<br>");
+                    for (i = 0; i < d.kysymykset[7].vaihtoehdot.length; i++) {
+                        items6.push("<input type=" + d.kysymykset[7].kysymystyyppi +
+                                   " id= " +
+                                   d.kysymykset[7].vaihtoehdot[i].vaihtoehto_id[i] + " name= " + d.kysymykset[7].kysymys_id + " value=" + d.kysymykset[7].vaihtoehdot[i].vaihtoehtoteksti + ">" + d.kysymykset[7].vaihtoehdot[i].vaihtoehtoteksti + "<br>");
+                    }
+                }
+            });
+/* SIVULLE APPENDAAMINEN */     
+            $("<div/>", {
+                "class": "kysymys5",
+                html: items6.join("")
+            }).appendTo("#kysymys5");
+            });
+           
+		   
+		 
+
+
+		 
+
+/*CHECKBOX: Tähän koodiin niitä for-looppeja... */		 
+         
+                    
+					/*	Radio ja Checkboxeihin tulisi kai näin?
+                    
+                    for (i = 0; i < d.value.length; i++) { 
+	items.push("<input type=" + d.type + " id= "+ d.value[i]+ " name= "+ d.name+" value="+ d.value[i]+">"+d.value[i]+"<br>" ); */
+     
+		   
+		   
+		  
+		   
+
+   
+/* DATAN LÄHETTÄMINEN MIRJAN ESIMERKISTÄ*/
+
+function laheta(){
+	
+	var kehitys = $('textarea#teksti').val();
+	var sukupuoli = document.querySelector('input[name = "sukup"]:checked').value;
+/*
+	var arvio = document.querySelector('input[name = "arvio"]:checked').value;
+    var osuus = document.querySelector('input[name = "osuus"]:checked').value;
+*/
+	/* CHECKBOXIN VASTAUKSEN HAKEMINEN:
+	
+	var opintojakso= "";
+	var taulukko=[];
+	$("input:checkbox[name=opintojakso]:checked").each(function(){
+    taulukko.push($(this).val());
+	});
+	
+	for (i = 0; i < taulukko.length; i++) { 
+	//alert(taulukko[i]);
+	opintojakso=opintojakso +" "+ taulukko[i];
+	}
+	
+	 */
+	 
+	alert("Kiitos palautteestasi, käsittelemme sen mahdollisimman pian."+'\n\n'+"Miten kehittäisit opintojaksoa? : "+kehitys+'\n\n'+"Sukupuoli? : "+sukupuoli);
+
+	
+	
+	}      
+
+/* TÄHÄN LOPPUU MIRJAN ESIMERKISTÄ KOPIOITU JA MUOKATTU JUTTU */    
+
+</script>
+ 
+ 
+ 
+ 
+
+
+
+
+<!--  
+
+
+SEURAAVA ESIMERKKI on otettu Moodlesta "Esimerkki POST-metodin kutsusta ajaxilla":
+	       
+	       
+$(document).ready(function(){
+var jsonData = {"kymysId":"1234", "vastaus":"23"};
+/* stringify-metodia tarvitaan vain alert-funktiota varten */
+var myJSON = JSON.stringify(jsonData);
+$("button").click(function(){
+    
+	$.ajax({
+    url: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
+    type: 'POST',
+    dataType: 'json',
+    data: jsonData, 
+    success: function() { alert('POST completed. Data:' + myJSON)}
+});
+	
+}); 
+});
+
+Moodlesta otettu Esimerkki loppuu
+/-->
+
+	
+	
+	
+	<!-- 
+FOR-LOOPPI ESIMERKKI!
+if (d.type == "radio" || d.type == "checkbox") {
+                    items.push("<br>" + d.kysymys + ":<br>");
+                    for (i = 0; i < d.value.length; i++) {
+                        items.push("<input type=" + d.type + " id= " + d.value[i] + " name= " + d.name + " value=" + d.value[i] + ">" + d.value[i] + "<br>");
+                    }
+                }
+            });
+//--> 
+	
+	
+
+</body>
+</html>
