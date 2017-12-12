@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Helga Pinder</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/EtusivuTyyli.css">
+
+    
+</head>
+<body>
+
+
+
+    
+
+    
+<div class="container">
+<div class="kirjautuminen">
+<form>
+    
+        <h1>Pinder</h1>
+
+        <h4 style="margin-bottom: 50px; color: white">Haaga-Helian kurssipalautepiste</h4>
+
+        <div id="kysymys1"></div>
+
+        <div class="lahettaminen" style="text-align: center; margin-top: 20px; margin-bottom: 7px">
+        <a href="karuselli.html" type="submit" class="btn btn-primary one" style="font-family: 'Lato', sans-serif;font-size: 16px; width: 270px;">Kirjaudu</a>
+        </div>
+    
+</form>
+</div> 
+</div>
+<script>
+       $.getJSON("http://proto326.haaga-helia.fi:8080/pepemake/kyselyt/1/kysymykset", function(data) {
+           
+            var items = [];
+            var i = 0;
+           
+            
+     
+            $.each(data, function (key, d) {
+                if (d.kysymykset[0].kysymystyyppi == "text" || d.kysymykset[0].kysymystyyppi == "textarea") {
+                    items.push("<input placeholder=" + d.kysymykset[0].kysymysteksti + " kysymystyyppi=" + d.kysymykset[0].kysymystyyppi + " id= " + d.kysymykset[0].kysymys_id + "><br>");
+                }
+               
+                
+                
+            });
+           
+            
+          
+
+
+            $("<div/>", {
+                "class": "my-new-list",
+                html: items.join("")
+            }).appendTo("#kysymys1");
+           
+           items2 = [];
+           $.each(data, function (key, d) {
+                if (d.kysymykset[1].kysymystyyppi == "text" || d.kysymykset[1].kysymystyyppi == "textarea") {
+                    items2.push("<input placeholder=" + d.kysymykset[1].kysymysteksti + " kysymystyyppi=" + d.kysymykset[1].kysymystyyppi + " id= " + d.kysymykset[1].kysymys_id + "><br>");
+                }
+               
+                
+                
+            });
+     
+            
+          
+
+
+            $("<div/>", {
+                "class": "kysymys2",
+                html: items2.join("")
+			}).appendTo("#kysymys1");
+           
+        });
+		
+		;
+		
+		
+		
+		
+</script>
+
+
+</body>
+
+</html>
