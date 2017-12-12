@@ -1,13 +1,47 @@
-[{
-    "kysymysteksti":"Onko hauki kala?",
-    "type":"radio",
-    "name":"hauki",
-    "value":["on", "ei"]
+[{  "kysymys":"Opiskelijanumerosi ",
+    "type":"text",
+    "name":"opiskelijanumero",
+    "value":[""]
     
 },{
-    "kysymysteksti":"Onko vesi markaa?",
+    "kysymys":"Kurssiavain ",
+    "type":"text",
+    "name":"kurssiavain",
+    "value":[""]
+    
+},{
+    "kysymys":"Sukupuoli ",
     "type":"radio",
-    "name":"vesi",
-    "value":["on", "ei"]
+    "name":"sukupuoli",
+    "value":["Mies", "Nainen"]
 
+},{ "kysymys":"Mitä hyvää opintojaksossa on ollut ",
+    "type":"checkbox",
+    "name":"opintojakso",
+    "value":["Opettaja", "Kurssin sisältö", "ryhmätyöt", "ohjaus", "oppimateriaalit"]
+    
+},{
+    "kysymys":"Muu, mikä ",
+    "type":"text",
+    "name":"muu",
+    "value":[""]
+    
+},{
+    "kysymys":"Miten kehittäisit opintojaksoa ",
+    "type":"textarea",
+    "name":"kehitys",
+    "value":[""]
+    
+},{
+    "kysymys":"Kokonaisarvio opintojaksosta ",
+    "type":"radio",
+    "name":"arvio",
+    "value":["1", "2", "3", "4", "5"]
+
+},{
+    "kysymys":"Arvioi omaa osuuttasi oppimisessa sekä osaamistavoitteiden saavuttamisessa ",
+    "type":"radio",
+    "name":"osaaminen",
+    "value":["1", "2", "3", "4", "5"]
+    
 }]

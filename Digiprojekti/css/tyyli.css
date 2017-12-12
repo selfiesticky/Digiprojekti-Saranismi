@@ -1,0 +1,136 @@
+#myCarousel  {
+    background-image: url(../kuvat/Pinder.png);
+    background-position: center;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    text-align: center;
+	align-content: center;
+}
+
+.tekstikentta {
+	font-size: 30px;
+	color: white;
+	margin-top: 40px;
+	margin-left:0px;
+}
+
+#teksti {
+	color: black;
+	font-size: 14px;
+	width: 270px;
+	height: 135px;
+	max-width: 290px;
+}
+
+.kysymys1 {
+	font-size: 30px;
+	color: white;
+	margin-top: 50px;
+	margin-left:0px;
+}
+
+.kysymys2 {
+	font-size: 30px;
+	color: white;
+	margin-top: 257px;
+	margin-left:0px;
+}
+
+.kysymys4 {
+	font-size: 30px;
+	color: white;
+	margin-top: 172px;
+	margin-left:0px;
+}
+
+.kysymys3 {
+	font-size: 30px;
+	color: white;
+	margin-top: 257px;
+	margin-left:0px;
+}
+
+.kysymys5 {
+	font-size: 30px;
+	color: white;
+	margin-top: 60px;
+	margin-left:0px;
+}
+
+input {
+	color:black;
+	font-size: 12px;
+	height: 100px;
+	width: 300px;
+}
+
+#myradio {
+	margin-top: 20px;
+	width: 17px;
+	height: 17px;
+}
+
+#myradio2 {
+	margin-top: 5px;
+	width: 17px;
+	height: 17px;
+}
+
+.carousel-inner {
+	width: 300px;
+	height: 758px;
+}
+
+ @media (min-width: 700px) {
+   
+     #myCarousel {
+        padding-right: 35%;
+        padding-left: 35%;
+     }
+ }
+ @media only screen and (max-width: 360px) {
+.my-new-list {
+margin: 0 auto;
+margin-bottom: 7px;
+font-size: 16px;
+text-align:center;
+padding-top: 150px;
+}
+.kysymys2 {
+margin-top: 200px;
+margin: 0 auto;
+margin-bottom: 7px;
+font-size: 16px;
+text-align:center;
+padding-top: 150px;
+}
+
+.kysymys4 {
+margin: 0 auto;
+margin-bottom: 7px;
+font-size: 16px;
+text-align:center;
+padding-top: 150px;
+}
+
+.kysymys3 {
+margin: 0 auto;
+margin-bottom: 7px;
+font-size: 16px;
+text-align:center;
+padding-top: 150px;
+}
+
+
+#myCarousel {
+background-image: url(../kuvat/Pinder.png);
+}
+
+.carousel-inner {
+	height: 500px;
+}
+
+input {
+	width:200px;
+}
+ }

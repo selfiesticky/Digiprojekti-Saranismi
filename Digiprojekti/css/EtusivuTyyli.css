@@ -1,0 +1,54 @@
+body {
+    background-image:url(../kuvat/Pinder.png);
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: top;
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+font-size:80px; 
+font-family: 'Merienda', cursive; 
+margin-top: 300px; 
+color: white;
+}
+
+input {
+	color:black;
+	font-size: 25px;
+	height: 40px;
+	width: 180px;
+	margin-left: 15px;
+}
+
+.kirjautuminen .form-control {
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-new-list {
+	color: white;
+	margin-bottom: 7px;
+	margin-right: 52px;
+	
+	
+}
+
+.kysymys2 {
+	color: white;
+	 margin-bottom: 7px;
+	margin-right: 0px;
+	
+
+	}
+
+	
+@media only screen and (max-width: 360px) {
+.my-new-list {margin: 0 auto;
+margin-bottom: 7px;}
+.kysymys2 {margin: 0 auto;
+margin-bottom: 7px;}
+.one {width: 100px;}
+h1 {font-size: 60px;}
+
